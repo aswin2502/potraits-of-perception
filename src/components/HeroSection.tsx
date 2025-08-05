@@ -27,17 +27,35 @@ const HeroSection: React.FC = () => {
       setTrailId(prev => prev + 1);
     };
 
+    const handleTouchMove = (e: TouchEvent) => {
+      if (!showMouseTrail) return;
+      e.preventDefault();
+      const touch = e.touches[0];
+      const newPoint = { x: touch.clientX, y: touch.clientY, id: trailId };
+      setMouseTrail(prev => [...prev.slice(-35), newPoint]);
+      setTrailId(prev => prev + 1);
+    };
+
     const handleClick = () => {
       setShowMouseTrail(false);
       setMouseTrail([]);
     };
 
+    const handleTouchEnd = () => {
+      setShowMouseTrail(false);
+      setMouseTrail([]);
+    };
+
     window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('touchmove', handleTouchMove, { passive: false });
     window.addEventListener('click', handleClick);
+    window.addEventListener('touchend', handleTouchEnd);
     
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('touchmove', handleTouchMove);
       window.removeEventListener('click', handleClick);
+      window.removeEventListener('touchend', handleTouchEnd);
     };
   }, [trailId, showMouseTrail]);
 
