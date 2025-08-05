@@ -46,7 +46,7 @@ function App() {
                         CONTACT: 8220818979
                       </p>
                       <p className="text-blue-400 text-xs md:text-sm font-mono">
-                        Mail: dhanyasri262@gmail.com
+                        Mail: 22am120@stjosephs.ac.in
                       </p>
                     </div>
                     <div className="text-center">
@@ -57,7 +57,18 @@ function App() {
                            CONTACT: 7200449502
                       </p>
                       <p className="text-blue-400 text-xs md:text-sm font-mono">
-                           Mail: bevinsancia.6169@gmail.com
+                           Mail: 22aml34@stjosephs.ac.in
+                      </p>
+                    </div>
+                    <div className="text-center">
+                      <p className="text-blue-300 text-sm md:text-base mb-1 font-mono">
+                         DHARANI THARAN M  
+                      </p>
+                      <p className="text-blue-400 text-xs md:text-sm mb-2 font-mono">
+                           CONTACT: 9003343936
+                      </p>
+                      <p className="text-blue-400 text-xs md:text-sm font-mono">
+                           Mail: 22am144@stjosephs.ac.in
                       </p>
                     </div>
                   </div>

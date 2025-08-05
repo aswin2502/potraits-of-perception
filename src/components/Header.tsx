@@ -21,26 +21,24 @@ const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo and Title */}
-          <div className="flex items-center space-x-4 cursor-pointer" onClick={() => onNavigate('home')}>
-            <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center shadow-lg border-2 border-blue-300 overflow-hidden">
+          <div className="flex items-center space-x-2 md:space-x-4 cursor-pointer" onClick={() => onNavigate('home')}>
+            <div className="w-12 h-12 md:w-16 lg:w-20 md:h-16 lg:h-20 bg-blue-100 rounded-full flex items-center justify-center shadow-lg border-2 border-blue-300 overflow-hidden">
               <img 
                 src={headerLogo} 
                 alt="Portraits of Perception Logo" 
                 className="w-full h-full object-cover rounded-full"
                 style={{
                   imageRendering: 'crisp-edges',
-                  imageRendering: '-webkit-optimize-contrast',
-                  imageRendering: 'pixelated',
                   transform: 'scale(1.1)',
                   filter: 'contrast(1.1) brightness(1.05)'
                 }}
               />
             </div>
             <div>
-              <h1 className="text-2xl font-bold font-serif tracking-wide drop-shadow-lg">
+              <h1 className="text-sm md:text-lg lg:text-2xl font-bold font-serif tracking-wide drop-shadow-lg">
                 PORTRAITS OF PERCEPTION
               </h1>
-              <p className="text-blue-200 text-sm">
+              <p className="text-blue-200 text-xs md:text-sm">
                 LET YOUR EYES THINK
               </p>
             </div>
