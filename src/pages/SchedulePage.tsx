@@ -261,11 +261,9 @@ const SchedulePage: React.FC = () => {
             <li>• Each team must consist of 2 members only – no solo entries allowed.</li>
             <li>• Laptop is mandatory for participation; ensure it's fully charged.</li>
             <li>• Participants must report by 9:00A.M sharp for briefing.</li>
-            <li>• Time constraints must be strictly followed – late submissions will not be accepted.</li>
+            <li>• Time constraints must be strictly followed .</li>
             <li>• No use of mobile phones or external assistance during the event.</li>
             <li>• Internet access should only be through the provided tools – no external browsing.</li>
-            <li>• Misbehavior will lead to immediate disqualification.</li>
-            <li>• The decision of the coordinators/judges is final and binding in all matters.</li>
           </ul>
         </div>
       </div>

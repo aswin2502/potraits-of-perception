@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Sparkles, Calendar, MapPin, Users } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
 import qrCodeImage from '../assets/sympo qr.jpg';
@@ -6,80 +6,14 @@ import qrCodeImage from '../assets/sympo qr.jpg';
 const HeroSection: React.FC = () => {
   const { isDark } = useTheme();
   const [showQRCode, setShowQRCode] = useState(false);
-  const [mouseTrail, setMouseTrail] = useState<Array<{x: number, y: number, id: number}>>([]);
-  const [trailId, setTrailId] = useState(0);
-  const [showMouseTrail, setShowMouseTrail] = useState(true);
 
   const handleQRCodeClick = () => {
     setShowQRCode(!showQRCode);
   };
 
-  const handleClick = () => {
-    setShowMouseTrail(false);
-    setMouseTrail([]);
-  };
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!showMouseTrail) return;
-      const newPoint = { x: e.clientX, y: e.clientY, id: trailId };
-      setMouseTrail(prev => [...prev.slice(-35), newPoint]);
-      setTrailId(prev => prev + 1);
-    };
-
-    const handleTouchMove = (e: TouchEvent) => {
-      if (!showMouseTrail) return;
-      e.preventDefault();
-      const touch = e.touches[0];
-      const newPoint = { x: touch.clientX, y: touch.clientY, id: trailId };
-      setMouseTrail(prev => [...prev.slice(-35), newPoint]);
-      setTrailId(prev => prev + 1);
-    };
-
-    const handleClick = () => {
-      setShowMouseTrail(false);
-      setMouseTrail([]);
-    };
-
-    const handleTouchEnd = () => {
-      setShowMouseTrail(false);
-      setMouseTrail([]);
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('touchmove', handleTouchMove, { passive: false });
-    window.addEventListener('click', handleClick);
-    window.addEventListener('touchend', handleTouchEnd);
-    
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('touchmove', handleTouchMove);
-      window.removeEventListener('click', handleClick);
-      window.removeEventListener('touchend', handleTouchEnd);
-    };
-  }, [trailId, showMouseTrail]);
-
   return (
     <section className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 py-20 overflow-hidden transition-all duration-300">
       
-      {/* Blue Mouse Trail */}
-      {showMouseTrail && mouseTrail.map((point, index) => (
-        <div
-          key={point.id}
-          className="fixed pointer-events-none z-50 rounded-full animate-pulse"
-          style={{
-            left: point.x - 4,
-            top: point.y - 4,
-            width: `${Math.max(3, 10 - index * 0.2)}px`,
-            height: `${Math.max(3, 10 - index * 0.2)}px`,
-            backgroundColor: `rgba(59, 130, 246, ${Math.max(0.1, 0.9 - index * 0.02)})`,
-            boxShadow: `0 0 ${Math.max(3, 8 - index * 0.15)}px rgba(59, 130, 246, ${Math.max(0.4, 1 - index * 0.015)})`,
-            opacity: Math.max(0.1, 1 - index * 0.025),
-            animationDelay: `${index * 0.08}s`
-          }}
-        />
-      ))}
-
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 via-transparent to-blue-400/20"></div>
